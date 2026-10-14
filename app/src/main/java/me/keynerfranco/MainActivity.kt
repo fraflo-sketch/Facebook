@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import me.keynerfranco.ui.screen.FeedScreen
 import me.keynerfranco.ui.screens.FacebookLoginScreen
 import me.keynerfranco.ui.screens.FacebookRegisterScreen
 
@@ -28,12 +29,17 @@ class MainActivity : ComponentActivity() {
                 composable(route="login"){
                     FacebookLoginScreen(onClickRegister = {
                         myNavController.navigate(route="register")
+                    }, onClickIniciarSesion = {
+                        myNavController.navigate(route="feed")
                     })
                 }
                 composable(route="register"){
                     FacebookRegisterScreen(onClickBack={
                         myNavController.popBackStack()
                     })
+                }
+                composable (route = "feed"){
+                    FeedScreen()
                 }
             }
 
