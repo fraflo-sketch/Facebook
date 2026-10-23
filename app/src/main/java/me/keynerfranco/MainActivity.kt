@@ -30,7 +30,12 @@ class MainActivity : ComponentActivity() {
                     FacebookLoginScreen(onClickRegister = {
                         myNavController.navigate(route="register")
                     }, onClickIniciarSesion = {
-                        myNavController.navigate(route="feed")
+                        myNavController.navigate(route="feed"){
+                            popUpTo(route = "Login"){
+                                inclusive=true
+                            }
+
+                        }
                     })
                 }
                 composable(route="register"){
@@ -39,6 +44,7 @@ class MainActivity : ComponentActivity() {
                     })
                 }
                 composable (route = "feed"){
+
                     FeedScreen()
                 }
             }
