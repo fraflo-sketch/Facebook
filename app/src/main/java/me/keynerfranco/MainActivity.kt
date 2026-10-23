@@ -22,28 +22,28 @@ class MainActivity : ComponentActivity() {
 
             NavHost(
                 navController = myNavController,
-                startDestination = "login",
+                startDestination = Routes.Login,
                 modifier = Modifier.fillMaxWidth()
 
             ) {
-                composable(route="login"){
+                composable(route= Routes.Login){
                     FacebookLoginScreen(onClickRegister = {
-                        myNavController.navigate(route="register")
+                        myNavController.navigate(route= Routes.Register)
                     }, onClickIniciarSesion = {
-                        myNavController.navigate(route="feed"){
-                            popUpTo(route = "Login"){
+                        myNavController.navigate(route= Routes.Feed){
+                            popUpTo(route = Routes.Login){
                                 inclusive=true
                             }
 
                         }
                     })
                 }
-                composable(route="register"){
+                composable(route= Routes.Register){
                     FacebookRegisterScreen(onClickBack={
                         myNavController.popBackStack()
                     })
                 }
-                composable (route = "feed"){
+                composable (route = Routes.Feed){
 
                     FeedScreen()
                 }
