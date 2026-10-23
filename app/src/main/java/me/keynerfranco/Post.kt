@@ -1,0 +1,12 @@
+package me.keynerfranco
+
+data class Post(
+    val id: Int,
+    val author: String,
+    val time: String,
+    val content: String,
+    val likes: Int,
+    val comments: Int,
+    val liked: Boolean = false,
+    val imageUrl: String? = null,
+)
